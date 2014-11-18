@@ -7,10 +7,15 @@
 
 \begin{WPObjectives}
   The objective of this work package is to develop and demonstrate a
-  set of API's enabling components such as database interfaces,
+  set of API's enabling 
+
+
+components such as database interfaces,
   computational modules, separate systems such as GAP or Sage to be
   flexibly combined and run smoothly across a wide range of
   environments (cloud, local, server, ...).
+
+  %HPC 
 \end{WPObjectives}
 
 \begin{WPDescription}
@@ -69,14 +74,45 @@
       within Sage like a native Sage group.
     \end{itemize}
 
-  \item Modularization
+  \item Modularization 
+
+    In this task we will investigate best practices for composing,
+    sharing and interfacing computational components and data for
+    connected mathematical systems.
+
+    This task affects all the multi-purpose mathematical systems
+    present in the project : GAP, Sage, Singular.  Two lines of
+    research are central to this task:
     \begin{itemize}
-    \item common architecture for module maintenance and
-      distribution (related to point 1 above)
-    \item Sharing experience and best practices
-    \item Modularization of Sage
-    \item Refactorization of GAP's package mechanism; namespaces?
+    \item libraries, interfaces and API's,
+    \item packaging systems.
     \end{itemize}
+
+    We will start with a comparative study of the practices adopted in
+    various open source projects, both inside and outside of this
+    project. This will include reviewing non-mathematical systems,
+    e.g.: operating systems, platforms, web frameworks, cloud and HPC
+    infrastructures...
+
+    Sage has a long history of integrating and distributing large
+    mathematical libraries/software as a whole, with relatively few
+    attention given to defining and exposing interfaces. Component
+    re-usability is not a main focus for the Sage community, at the
+    same time the non-standard and relatively underused package system
+    discourages writing and maintaining autonomous libraries. These
+    factors have contributed to make the Sage distribution what is
+    usually described as a ``monolith'' (Sage library code alone, not
+    counting included libraries, makes up for 1.5M lines of code).
+
+    On the other hand GAP has been distributing community-developed
+    ``GAP packages'' for a long time, but faces now fragmentation
+    issues, at the code and at the community level. The rudimentary
+    package system adds more technical difficulties to GAP's
+    development model.
+
+    vcs, upstream reporting, social issues (credit, community
+    management, ...)
+
 
   \item Deployment and distribution
 
