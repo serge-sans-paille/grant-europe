@@ -1,40 +1,42 @@
-\addtocounter{wpno}{1}
-\begin{Workpackage}{\thewpno}
-\wplabel{wp:x}
-\WPTitle{\wpname{\thewpno}}
-\WPStart{Month 1}
-\WPParticipant{SA}{1}
+\begin{workpackage}[id=x,title=Template,whphases=1-48!.5,
+,SARM=1]
 
-\begin{WPObjectives}
-% 5-10 lignes
+\begin{wpobjectives}
+% Objectives of the work package; 5-10 lignes, typically itemized
+The objectives of this work package are to:
+\begin{compactitem}
+\item
+\item
+\item
+\item
+\item
+\end{compactitem}
+\end{wpobjectives}
 
-The objectives of \theWP{} are to:
-\begin{itemize}
-\item
-\item
-\item
-\item
-\item
-\end{itemize}
-\end{WPObjectives}
-
-\begin{WPDescription}
-  % Overall description, and description of 3-5 tasks
-  % The description of each task can be 5 to 15 lines depending on the
-  % complexity and amount of details deemed necessary.
-
-This workpackage  ...
-\end{WPDescription}
+\begin{wpdescription}
+  % Overall description; typically 10 lines to half a page
+  % as appropriate, depending on the variety and number of tasks
+  This workpackage  ...
+\end{wpdescription}
 
 % Please see UserInterfaces.tex for now as an example
 
-\begin{task}{Task title}
-\end{task}
+\begin{tasklist}
+  % 3-5 tasks
 
-\begin{task}{Other task title}
-\end{task}
+  % The description of each task can be 5 to 15 lines depending on the
+  % complexity and amount of details deemed necessary, and involve and
+  % refer to 1-3 deliverables.
 
-\begin{WPDeliverables}
+  \begin{task}[title=Task title]
+    % Optional: lead=id of the task leader, PM=estimate of the person-months required
+  \end{task}
+
+  \begin{task}[title=Other task title]
+  \end{task}
+\end{tasklist}
+
+\begin{wpdelivs}
   \eucommentary{ Deliverable numbers in order of delivery
     dates. Please use the numbering convention <WP number>.<number of
     deliverable within that WP>.  For example, deliverable 4.2 would
@@ -42,10 +44,9 @@ This workpackage  ...
 
     Type:
     Use one of the following codes:
-    R:
-    Document, report (excluding the periodic and final reports)
+    R: Document, report (excluding the periodic and final reports)
     DEM: Demonstrator, pilot, prototype, plan designs
-    DEC: Websites, patents filing, press & media actions, videos, etc.
+    DEC: Websites, patents filing, press \& media actions, videos, etc.
     OTHER: Software, technical diagram, etc.
     Dissemination level:
     Use one of the following codes:
@@ -55,7 +56,16 @@ This workpackage  ...
     Delivery date
     Measured in months from the project start date (month 1)
   }
-  \WPDeliverable{<delivery date,type,PU>}{del:xxx}{One line deliverable description.}
-  \WPDeliverable{<delivery date,type,PU>}{del:xxx}{One line deliverable description.}
-\end{WPDeliverables}
-\end{Workpackage}
+  \begin{wpdeliv}[due=<delivery date,type,PU>,id=xxx,dissem=PU,nature=R]
+    {One line deliverable description.}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=<delivery date,type,PU>,id=yyy,dissem=PU,nature=DEM]
+    {One line deliverable description.}
+  \end{wpdeliv}
+\end{wpdelivs}
+\end{workpackage}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../proposal"
+%%% End:

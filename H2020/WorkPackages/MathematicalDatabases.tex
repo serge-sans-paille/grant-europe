@@ -1,116 +1,275 @@
-\addtocounter{wpno}{1}
-\begin{Workpackage}{\thewpno}
-\wplabel{wp:x}
-\WPTitle{\wpname{\thewpno}}
-\WPStart{Month 1}
-\WPParticipant{ZH}{1}
-
-\begin{WPObjectives}
-  The objectives of \theWP{} is to design interfaces that can be used
-  for a wide range of mathematical data, facilities for accepting
-  contributions while tracking provenance and credit, and definition of standard
-  metadata allowing for interoperability, database discovery, 
-  versioning allowing stable references, and easy recomputation.
-  
-%  Participants: Warwick, Zurich, Logilab (SME in Paris)
-\end{WPObjectives}
+\begin{draft}
+\TOWRITE{MK (Work Package Lead)}{For WP leaders, please check the following (remove items
+once completed)}
+\begin{verbatim}
+- [ ] have all the tasks in this Work Package a lead institution?
+- [ ] have all deliverables in the WP a lead institution?
+\end{verbatim}
+\end{draft}
 
 
-\begin{WPDescription}
-Mathematics is the only science that has not yet benefited massively from the systematic interchange of data. Many mathematical databases now exist, but their internal structure does not surface the richness of the interconnections between the objects that are studied. This prevents the formulation of new conjectures, the testing of new hypotheses, and generally an exploratory approach to mathematical data. The past has shown that this approach could be fruitful: 
-\begin{itemize}
-\item both the Riemann Hypothesis and the Birch and Swinnerton Dyer conjectures resulted from computations, and now stand among the seven Clay Millenium Problems;
-\item the Monstrous Moonshine conjecture finds its origin in a numerical co\"incidence between dimensions of representations of the Monster group and coefficients of the $j$-function, and its conclusion eventually led to Borcherds' Fields medal.
-\end{itemize}
 
-Existing tools are not suitable for this hypothesis generation across mathematical subdisciplines: both sides are usually studied by different communities, and the interconnections have themselves such complexity that they typically become the object of study of yet another group of mathematicians. This explains the need for infrastructure that could be used uniformly over wide ranges of mathematics, certainly poses additional challenges compared to existing solutions, but also allows for potentially groundbreaking improvements. At the same time, some issues are less prevalent in mathematics, for instance tied to "veracity": most often the data results from deterministic computations implemented via exact and verified algorithms. 
+\begin{workpackage}[id=dksbases,wphases=1-48!.5,
+  title=Data/Knowledge/Software-Bases,lead=JU,
+  ZHRM=12,JURM=36,USHRM=12,UWRM=3,SARM=10]
 
-We propose in this work package to design and build an infrastructure that would make it easy for either isolated mathematicians or a distributed collaboration to manage mathematical data. This work would provide part of the backend to Work Packages \TODO{work package on interfaces, and???}, and would draw on previous work with the LMFDB and FindStat (which will be looked at as prototypes for our purposes). Requirements should be as minimal as possible (depending on the individual's goals), and in particular would not require any background in databases to contribute new data or perform queries. 
-\end{WPDescription}
+ \TOWRITE{POD}{improve consistency of the
+    short description w.r.t. the Databases work package (in particular
+    provenance w.r.t. traceability)}
 
-\begin{task}{Survey of existing databases}
-\label{task:data_assessment}
-All the systems considered in this proposal (\GAP, \Sage, \Pari, \Singular) include data as part of their regular distribution. In this task, we will survey existing databases, the technology used to implement them, how they were linked to the rest of the existing infrastructure and the functionalities offered. We will also select additional external data and projects to add to this effort, aiming to maximise the impact of our work. 
+\begin{wpobjectives}
+  The objectives of this work package are: to design and implement interfaces that can be
+  used for a wide range of mathematical data and to standardise metadata allowing for
+  interoperability, searching, documentation, traceability, versioning and visualisation.
+\end{wpobjectives}
+
+\begin{wpdescription}
+  Many mathematical databases now exist, but their internal structure does not reveal this
+  richness. This weakness prevents the formulation of new conjectures, the testing of new
+  hypotheses, and generally an exploratory approach to mathematical data. The past has
+  shown that such an approach can be fruitful:
+  \begin{compactitem}
+  \item both the Riemann Hypothesis and the Birch and Swinnerton-Dyer conjectures resulted
+    from exploratory $L$-function computations, and now stand among the seven Clay
+    Millenium Problems;
+  \item the Monstrous Moonshine conjecture finds its origin in a numerical co\"incidence
+    between dimensions of representations of the Monster group and coefficients of the
+    $j$-function, and its conclusion eventually led to Borcherds' Fields medal.
+  \end{compactitem}
+
+  Therefore to facilitate future advances, we need ways to represent DKS in the same
+  systems, and -- since current computational/experimental mathematics involve extensive
+  DKS -- we need a new kind of "database", which we will call Mathematical
+  Data/Knowledge/Software-bases.
+
+  This complexity is on vivid display in the \emph{L-functions and Modular Forms database}
+  project (\LMFDB): while the general shape of the functional equation of an $L$-function
+  is dependent on a lot of theoretical knowledge, it also requires parameter data and the
+  coefficients of the associated Dirichlet series. Once this is obtained, highly optimised
+  (and heavily parallelizable) algorithms can be run to compute values of this function.
+
+  We propose in this work package to design and build an infrastructure that would make it
+  easy for either individual mathematicians or a distributed collaboration to manage and
+  use such interlinked mathematical data. This work would provide part of the backend to
+  Work Packages \TODO{work package on interfaces, and???}, and would draw on previous work
+  with the \LMFDB and FindStat (which will be treated as prototypes for our purposes, to
+  serve as exemplars to other projects) and in return will substantially enhance their
+  capabilities. Prerequisites should be kept to a minimum (depending on contributors' and
+  users' needs and goals), and in particular would not require any background in databases
+  to contribute new data or perform queries.
+\end{wpdescription}
+
+\begin{tasklist}
+\begin{task}[title=Survey of existing databases,id=data-assessment,
+  lead=ZH,partners={JU,SA,UW,US}]
+  All the systems considered in this proposal (\GAP, \Sage, \Pari, \Singular) include data
+  as part of their regular distribution. In this task, we will survey existing databases,
+  the technology used to implement them, how they were linked to the rest of the existing
+  infrastructure and the functionalities offered. We will also select additional external
+  data and projects to add to this effort, aiming to maximise the impact of our work.
 \end{task}
 
-\begin{task}{Design of new infrastructure, formulation of requirements}
-\label{task:data_design}
-Ontologies are the canonical method used to implement databases that require significant data interchange. However, because of extreme reification in mathematics, this is not entirely suitable for our goals. We will design a new infrastructure for \TheProject, drawing on existing emerging standards . 
+\begin{task}[id=data-design,lead=JU,partners={ZH,US,SA,UW},
+  title={Formulation of requirements and design of new  infrastructure when appropriate}]
+  \TOWRITE{Michael/POD}{Rewrite database requirements design task -- done second pass,
+    Michael have a look?}
 
+  Ontologies are the canonical method used to implement databases that require significant
+  data interchange. However, because of the extreme reification present in mathematics
+  (relations between objects themselves become objects of study), there are specific
+  obstacles compared to the usual semantic web model of publishing.
 
-\begin{itemize}
-\item Implementation MMT - > Logilab
-\item Math flexiformalisation, conversion of existing data
-\item Search functionality
-\item Memoization
-\end{itemize}
+  Drawing on semantic web/Linked Open Data experience of the \site{LL} group, specialised to
+  mathematics through the OMDoc/MMT work of the Bremen group, we will design a
+  decentralised infrastructure for \TheProject. This infrastructure would allow modular
+  collaborations, through decentralised hosting of data without the need to merge
+  everything centrally.
 
-  \begin{itemize}
-  \item Polytopes in Polymake
-  \item graphs, graph properties
-  \item existing in LMFDB
-  \item FindStat
-  \item Finite groups (Max)
-  \item Lattices
-  \end{itemize}
+  We will organise a workshop associated to this task.
 
+  \TODO{original comment: provide more info about above claim: ontologies not suitable
+    because of extreme reification}
 
-  \TODO{deliverable}
+  \TODO{original comment: Logilab suggests to organize workshop first, to confront
+    different cultures before committing to the design of a new infrastructure. For
+    example, based on its experience with CubicWeb, Logilab would promote the
+    decentralized mechanism of the (semantic) web for publishing mathematical data,
+    knowledge and software.}
+
+% TODO: logilab participation to workshop and collaborative comparison: PM=2
+
+% Building on the decentralized foundation of the internet, each university, lab
+% and research group could publish its own data while following the principles
+% of Linked Open Data and some tools would later harvest the different sites to
+% index all the available resources. This would facilitate the discovery of data
+% knowledge and software relevant to a particular project for a user, without
+% requiring to merge everything in the same place a priori.
+
 \end{task}
 
-\begin{WPDeliverables}
-\begin{itemize}
-\item Conversion of existing and new databases to unified interoperable system:
-  \begin{itemize}
-  \item Polytopes in Polymake
-  \item graphs, graph properties
-  \item LMFDB data
-  \item FindStat data
-  \item Finite groups (Max)
-  \item Lattices
-  \end{itemize}
-  
-\item \ref{del:persistent_memoization} (Month X): Shared persistent
-  memoization library for Python/Sage.  Typical use case: A group of
-  collaborators is using intensively a given function (in Sage, or in
-  their private code). They want to memoize the results, as with
-  e.g. Sage's \lstinline{cached_method}, but across sessions.  They
-  further want to share the underlying growing database between
-  themselves, and maybe eventually publish it.
+\begin{task}[title=Triform Theories in OMDoc/MMT,id=data-triform,
+  lead=JU,partners={ZH}]
+OMDoc/MMT is a representation language for mathematical knowledge and documents. Carette and Farmer have developed the notion of biform theories (K/S) in a uniform representational approach; our work here would extend this along the data axis, which will require a specialised but integrated treatment.
+\end{task}
 
-  Features:
-  \begin{itemize}
-  \item Use, further extend, and contribute back to some established
-    (Python?) persistent memoization infrastructure. E.g.
-    \begin{itemize}
-    \item \url{https://pythonhosted.org/joblib/memory.html}
-    \item \url{github.com/vivekn/redis-simple-cache}
-    \item \url{bitbucket.org/zzzeek/dogpile.cache}
-    \end{itemize}
-  \item Apply not only to user-level functions, but also to lower
-    level functions, e.g. in the Sage library, so that indirect calls
-    to the function also get memoized.
-  \item Trivial to setup and configure for the end user: in a single
-    line, the user selects an existing function, a backend (with a
-    default value), maybe provide some semantic information, and
-    voila. \\
-    Typical interface: a decorator to be set on appropriate functions.
-    \TODO{Mock code}
-    % mycloud = storage("ssh:xxx@yyy/zzz")
-    % memoize(sage.combinat...., storage=mycloud, input=ZZ, output=Posets(), key="catalan")
-  \item Trivial to setup and configure for groups of researchers, with
-    a wide range of storage backends (e.g. shared dropbox folder,
-    remote directory, database, git repository, ...).
-  \item Easy to setup data-bot: e.g. launching a virtual machine that
-    systematically fills up the shared database.
-  \item Versioning and provenance tracking (user, algorithm, software
-    version, ...), for quality certification, credit, ...
-  \item Recomputation?
-  \item Ease of publishing, importing, ...
-  \item Usual database properties: atomicity, merging (easy since the
-    results are supposed to be immutable: just need to merge the
-    tracking info), alerts in case of divergence.
-  \end{itemize}
-\end{itemize}
-\end{WPDeliverables}
-\end{Workpackage}
+\begin{task}[title=Computational Foundation for Python/Sage (or some CAS),
+  id=data-foundationCAS,lead=JU,partners={ZH,SA}]
+In the OMDoc/MMT world a foundation is a logical base language that gives the formal meaning to all objects represented/formalized in it. We have created a very initial computational foundation for Scala and implemented it in the MMT API. This can be used to execute (or verify) computations directly in OMDoc/MMT and thus forms the basis for various integration tasks for OMDoc/MMT biform theories that integrate Scala computations. Here we propose to develop a somewhat more complete computational foundation for Python and/or parts of Sage (coverage to be determined). Bi/Triform theories come in three parts:
+\begin{compactitem}
+\item syntax: what operators/types are there, how do they nest, 
+\item computation:  what does the computation relation look like (sometimes called operational semantics). The declarative semantics of a computational foundation can be given as an OMDoc/MMT theory morphism into another foundation (e.g. a set theory);
+\item ??? three parts
+\end{compactitem}
+\end{task}
+
+\begin{task}[title=OEIS Case Study (Coverage and automated import),id=data-OEIS,lead=JU]
+  In this case study we test the practical coverage of the trifunctional modules, by
+  transforming an existing, high-profile database (the Online Sequence of Integer
+  Sequences http://www.oeis.org) into OMDoc/MMT. The OEIS has about 250 thousand
+  sequences, with formulae, descriptions, definitions, references, software, etc. in a
+  structured text file (but no standardized format for formulae and references), so we
+  expect to get 250 k theories. Having the OEIS in OMDoc/MMT form allows to do Knowledge
+  Management services (presentation, definition lookup, formula search, ...) in
+  MathHub.info (see WP4.?). The OEIS is a good case study, since the DKM are licensed
+  under a CC license which allows derived works. The large size will allow statistically
+  significant semantic cross-validation of the heuristic transformation process and thus
+  achieve a significant DKS community resource.
+\end{task}
+
+% Michael, I think triformal theories would be easier to start with findstat.org
+% There are many reasons: more consistent structure in the mathematical data, more established research patterns, more consistent database storage, tighter integration of the code with sage code (in fact copy paste), etc
+
+\begin{task}[title=FindStat Case Study (triformal theories),id=data-findstat,
+  lead=JU,partners={ZH}]
+  In this task we would develop triformal theories for the FindStat project to test the
+  design from \localtaskref{data-foundationCAS}.  Similarly to the previous task, in this
+  case study, we first develop a thorough OMDoc/MMT model, which should only involve a
+  handful of MMT theories (combinatorial collections, maps, statistics,...), each with a
+  few hundred realisations. Together with \TOWRITE{POD}{WP4}, this will again allow for
+  easier knowledge management services, and in particular improved search services.
+
+  This Task will be co-developed with \localtaskref{data-foundationCAS}, it will validate
+  the design of triformal theories and be iterated to test the design changes.
+\end{task}
+
+\begin{task}[title=\LMFDB Case study (triformal theories),id=data-LMFDB,
+  lead=JU,partners={ZH}]
+  In this task we would develop triformal theories for an exemplary part of the \LMFDB
+  project to test the design from \localtaskref{data-foundationCAS}.  We will identify a
+  fragment of the \LMFDB that we want to model and design the model. Then we will perform
+  cross-validation of the three model parts against each other (essentially model-based
+  testing of software and inference). Finally, we will pick an algorithm from the LFMDB
+  and verify it against its specification and the computational foundation developed in
+  \localtaskref{data-foundationCAS}. (decrease importance of verification as opposed to
+  interoperability)
+\end{task}
+
+\begin{task}[title=Memoization and production of new data,id=data-memo,
+  lead=SA,partners={US}]
+  Many CAS users run large and intensive computations, for which they want to collect the
+  results while simultaneously working on software improvements. \Sage currently has a
+  limited \lstinline{cached_method}, that is not persistent across sessions and does not
+  enable to publish the result or share it with a smaller group of collaborators. We
+  propose to use, extend and contribute back to some established persistent memoization
+  infrastructure, such as \texttt{python-joblib}, \texttt{redis-simple-cache} or
+  \texttt{dogpile.cache}. The caching should apply recursively to lower level functions,
+  and should be trivial to setup and configure for the end user: in a single line, the
+  user only needs to select an existing function and maybe provide some additional
+  semantic information, and has the option to change the defaults for a few parameters,
+  such as the backend (shared dropbox folder, remote directory, database, git repository,
+  ...). The interface could be through a \Python decorator.  Additionally, it should be
+  easy to launch a data-bot to populate the database, all the versioning and provenance
+  tracking should be handled (user, algorithm, software version, ...), and the system
+  should have useful data properties (atomicity, merging, and error detection).
+%Mock code:
+%    \begin{lstlisting}
+%       mycloud = storage("ssh:xxx@yyy/zzz")
+%       memoize(sage.combinat...., storage=mycloud, input=ZZ, output=Posets(), key="catalan")
+%    \end{lstlisting}
+\end{task}
+\end{tasklist}
+
+\begin{wpdelivs}
+  \begin{wpdeliv}[due=9,id=wsrep,dissem=PU,nature=R,lead=JU]{Workshop Report}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=9,id=oeisparser,dissem=PU,nature=OTHER,lead=JU]
+      {Heuristic Parser for the OEIS}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=12,id=dkstheories,dissem=PU,nature=R,lead=JU]
+        {Design of Triform (DKS) Theories (Specification/RNC Schema/Examples)}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=12,id=pssyntax,dissem=PU,nature=DEC,lead=JU]
+        {Python/Sage Syntax Foundation Module in OMDoc/MMT}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=12,id=conv,dissem=PU,nature=DEC,lead=ZH]
+        {Conversion of existing and new databases to unified interoperable system}
+     \begin{compactitem}
+     \item Polytopes in Polymake
+     \item graphs, graph properties
+     \item Finite groups (Max)
+     \item Lattices
+     \end{compactitem}
+   \end{wpdeliv}
+  \begin{wpdeliv}[due=12,id=lfmmod,dissem=PU,nature=R,lead=ZH]
+      {\LMFDB deep modelling: Fragment Identification \& Initial Model Design}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=18,id=lfmval,dissem=PU,nature=R,lead=ZH]
+      {\LMFDB Data vs. Knowledge vs. Software Validation}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=18,id=oeisvalidation,dissem=PU,nature=R,lead=JU]
+      {Cross-Validation for OEIS DKS-Theories}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=24,id=persistent-memoization,dissem=PU,nature=OTHER,lead=ZH]
+    {Shared persistent memoization library for Python/Sage} 
+    Recomputation?,  Ease of publishing, importing, ...
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=24,id=dksimp,dissem=PU,nature=OTHER,lead=JU]
+        {Implementation of Triform Theories in the MMT API.}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=24,id=psfoundation,dissem=PU,nature=OTHER,lead=JU]
+        {Python/Sage Computational Foundation Module in OMDoc/MMT}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=36,id=pssem,dissem=PU,nature=OTHER,lead=JU]
+      {Python/Sage Declarative Semantics in OMDoc/MMT}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=36,id=lfmverif,dissem=PU,nature=OTHER,lead=JU]
+      {\LMFDB Algorithm verification wrt. a Triformal theory}
+  \end{wpdeliv}
+  \begin{wpdeliv}[due=46,id=lfmint,dissem=PU,nature=R,lead=JU]
+      {\LMFDB full integration of algorithms, data and presentation (not so much verification)}
+  \end{wpdeliv}
+\end{wpdelivs}
+
+
+Another connection: on several occasions, we found that software was the best way to
+represent certain databases of mathematical knowledge. E.g. in Algebraic Combinatorics we
+have a whole zoo of Hopf algebras. Many of them are implemented in MuPAD/Sage by
+specifying the objects that index the basis together with computation rules for the
+product and coproduct. When we want to retrieve information about such algebras, it's
+usually much more convenient to look at the code than to search through the
+literature. Especially since the code is usually more correct than the literature because
+it's *tested*.
+
+
+We may also think of providing an interface to \LMFDB via SCSCP
+protocol (http://www.symbolic-computing.org/scscp) so it may
+be accessed by a variety of other systems (see their current
+list at http://www.symbolic-computing.org/scscp)
+
+
+database access to \LMFDB as a python library
+\end{workpackage}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../proposal"
+%%% End:
+
+%  LocalWords:  workpackage dksbases wphases wpobjectives standardise visualisation emph
+%  LocalWords:  wpdescription Swinnerton-Dyer Millenium Borcherds optimised tasklist conv
+%  LocalWords:  parallelizable maximise organise biform specialised trifunctional TOWRITE
+%  LocalWords:  triformal findstat.org data-findstat localtaskref realisations texttt wrt
+%  LocalWords:  Memoization python-joblib texttt redis-simple-cache texttt dogpile.cache
+%  LocalWords:  lstlisting mycloud memoize sage.combinat wpdelivs wpdeliv dissem Polymake
+%  LocalWords:  Recomputation wsrep dkstheories dksimp pssyntax psfoundation pssem lfmmod
+%  LocalWords:  modelling lfmval lfmverif lfmint oeisparser oeisvalidation Hopf coproduct
+%  LocalWords:  compactitem decentralised Logilab
