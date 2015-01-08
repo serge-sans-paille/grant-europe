@@ -241,7 +241,7 @@ numerous other standalone libraries that make use of MPIR.
 \end{task}
 
 \begin{task}[title=Pythran,id=pythran,lead=UJF]
-  \Cython is a extended-\Python to C compiler that was originally developed for
+  \Cython is an extended-\Python to C compiler that was originally developed for
   \Sage and is now a thriving project of its own.
 
   \Pythran and \Cython are similar in spirit but have complementary feature
@@ -249,10 +249,10 @@ numerous other standalone libraries that make use of MPIR.
   has broader \Python support. In this task, we will investigate the
   opportunity and feasibility of a convergence between \Cython and \Pythran.
   \begin{itemize}
-    \item depending on the code at hand, one strategy or the other would be automatically selected.
+    \item Depending on the code at hand, one strategy or the other would be automatically selected.
     \item The optimized runtime of \Pythran can be used through \Cython.
   \end{itemize}
-  An effort will be made to improve more and more the parallelism in the
+  An effort will be made to improve the parallelism in the
   \Pythran runtime \localdelivref{pythran-cython}.
 
   This work will be achieved through a close collaboration between the \Pythran
@@ -262,9 +262,9 @@ numerous other standalone libraries that make use of MPIR.
   discussions with the \Cython community have already taken place and received a
   very favorable feedback.
 
-  Adding \Pythran support in \Sage will be done not only for \Sage code but also
-  for \Sage users code thanks to compilation facilities in the notebook interface.
-  \localdelivref{pythran-sage}
+  Adding \Pythran support in \Sage will be done not only for \Sage code but
+  also for \Sage users code thanks to compilation facilities in the notebook
+  interface \localdelivref{pythran-sage}.
 
 %  In a similar perspective, testing and improving the integration between
 %  \software{mpi4py} and \Pythran could provide an efficient toolchain for HPC
@@ -281,9 +281,10 @@ numerous other standalone libraries that make use of MPIR.
   This task will strongly benefit from Task~\localtaskref{pythran-cython},
   while providing in return a real life large-scale use case for it.
 
-  A first step to support object-oriented programming will be to make
-  \Pythran type inference more accurate, which will also improve error
-  feedback provided for the user \localdelivref{pythran-typing}.
+  A first step to support object-oriented programming will be to make \Pythran
+  type inference more accurate, which will also improve error feedback provided
+  for the user \localdelivref{pythran-typing}.
+
 \end{task}
 
 %Stuart Mumford, Neil Lawrence and Mike Croucher, Sheffield
